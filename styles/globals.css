@@ -24,22 +24,24 @@ body {
 }
 
 /* ── Report output styles ── */
+.report-body, .report-body * { color: #2a2a3e; }
+.report-body th, .report-body th * { color: #fff !important; }
 .report-body h2 {
   font-size: 20px;
-  color: var(--navy);
+  color: var(--navy) !important;
   margin: 32px 0 14px;
   padding-top: 24px;
   border-top: 1px solid #ece5d8;
   font-family: Georgia, serif;
 }
 .report-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-.report-body h3 { font-size: 16px; color: var(--navy); margin: 18px 0 10px; }
-.report-body p { margin-bottom: 10px; color: #2a2a3e; font-size: 15px; line-height: 1.75; }
+.report-body h3 { font-size: 16px; color: var(--navy) !important; margin: 18px 0 10px; }
+.report-body p { margin-bottom: 10px; font-size: 15px; line-height: 1.75; }
 .report-body ul, .report-body ol { padding-left: 22px; margin-bottom: 12px; }
-.report-body li { margin-bottom: 6px; color: #2a2a3e; font-size: 15px; }
+.report-body li { margin-bottom: 6px; font-size: 15px; }
 .report-body strong { color: var(--navy); }
 .report-body table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 14px 0; }
-.report-body th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: left; font-size: 13px; }
+.report-body th { background: var(--navy); padding: 10px 14px; text-align: left; font-size: 13px; }
 .report-body td { padding: 9px 14px; border-bottom: 1px solid #eee; }
 .report-body tr:nth-child(even) td { background: #f7f4ee; }
 
