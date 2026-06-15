@@ -77,70 +77,93 @@ FINANCIAL GOALS:
 
 Write the full report using these HTML sections. Every number must reference actual client data. Be specific, warm, direct, and professional.
 
-Use this color palette for callout boxes (ALWAYS include the text color so it stays readable on light backgrounds):
+Use this color palette for callout boxes (ALWAYS include color:#2a2a3e on every box):
 - Key insight: <div style="background:#fef9ec;border-left:4px solid #c9a84c;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14px;color:#2a2a3e;">
 - Warning/Risk: <div style="background:#fef2f0;border-left:4px solid #c0392b;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14px;color:#2a2a3e;">
 - Positive/Good: <div style="background:#f0faf5;border-left:4px solid #1a7a4a;padding:14px 18px;border-radius:0 10px 10px 0;margin:14px 0;font-size:14px;color:#2a2a3e;">
 
-CRITICAL: Every <td>, <p>, <li>, <div>, and <span> that contains text MUST have an explicit dark color (color:#2a2a3e or color:#0a1628). Never rely on inherited color — text without an explicit color will be invisible. For table data cells use <td style="padding:9px 14px;border-bottom:1px solid #eee;color:#2a2a3e">.
+CRITICAL: Every <td>, <p>, <li>, <div>, and <span> that contains text MUST have explicit color:#2a2a3e. Never rely on inherited color. Tables: <table style="width:100%;border-collapse:collapse;font-size:14px;margin:14px 0">, headers: <th style="background:#0a1628;color:#fff;padding:10px 14px;text-align:left">, cells: <td style="padding:9px 14px;border-bottom:1px solid #eee;color:#2a2a3e">.
 
 SECTIONS:
 
-<h2>📋 Executive Summary</h2>
-A 3-4 sentence narrative summary of this person's overall financial health, their single biggest strength, their single biggest gap/opportunity, and whether their primary goal is achievable in their timeline (with the key number that proves it). End with a one-line status verdict (e.g. "🟢 Healthy with optimization opportunities").
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">📋 Executive Summary</h2>
+3-4 sentence narrative: overall financial health, biggest strength, biggest gap, and whether their primary goal is achievable in timeline (with the key number). End with status verdict line (e.g. "🟢 Healthy with optimization opportunities").
 
-<h2>📊 A. Financial Snapshot & Credit Profile</h2>
-Income vs expenses summary table. Monthly surplus calculation shown explicitly. Per-card utilization table with risk rating (Good <10%, Moderate 10-30%, High >30%). Overall utilization and its specific impact on their credit score (cite that utilization is one of the largest scoring factors in Equifax/TransUnion). Net worth snapshot table. Identify 2-3 score-driving strengths and 2-3 areas of attention. State a realistic score target for 12 months and the exact conditions to reach it.
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">📊 A. Financial Snapshot & Credit Profile</h2>
+Income vs expenses summary table. Monthly surplus shown explicitly. Per-card utilization table with risk rating. Overall utilization impact on credit score. Net worth snapshot. 2-3 score strengths and 2-3 areas of attention. Realistic 12-month score target and exact conditions to reach it.
 
-<h2>📅 B. Optimal Payment Strategy</h2>
-Explain the key principle: credit bureaus report the balance at STATEMENT CLOSING, not at payment — so paying before the closing date lowers reported utilization. Build a day-by-day payment calendar using their actual closing and due day numbers for each card. Recommend a two-payment-per-card system (pre-statement payment + pre-due-date payment) in a table. Calculate the monthly interest cost they avoid by paying in full (balance × APR ÷ 12 per card, summed to an annual figure). Include one advanced tactic.
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">📅 B. Optimal Payment Strategy</h2>
+Explain credit bureaus report balance at statement closing. Day-by-day payment calendar using their actual closing/due day numbers per card. Two-payment-per-card system in a table. Calculate monthly interest avoided by paying in full (balance × APR ÷ 12 per card, annual total). One advanced tactic.
 
-<h2>⚡ C. Debt Elimination Plan</h2>
-Show each debt with its monthly interest cost (balance × APR ÷ 12). If total debt is small relative to surplus, say so directly and give a one-month payoff plan with exact distribution — don't force an avalanche/snowball framework where it isn't needed, but still SHOW the avalanche vs snowball comparison with their real numbers and name the winner. Provide a month-by-month projection table for the first 6 months. State total interest saved vs making minimum payments. End with a post-payoff operating rule.
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">⚡ C. Debt Elimination Plan</h2>
+Each debt with monthly interest cost. If debt is small vs surplus, give one-month payoff plan with exact distribution. Avalanche vs snowball comparison with real numbers and winner. Month-by-month 6-month projection table. Total interest saved vs minimums. Post-payoff operating rule.
 
-<h2>🎁 D. Rewards & Card Optimization</h2>
-Analyze each of their actual cards individually with its real reward structure (research the real earn rates for named cards like Amex Cobalt = 5x eats/groceries, etc.). Build a table mapping each spend category (groceries, restaurants, gas, travel, online, recurring bills) to the optimal card AND the points/cashback earned per year in that category with dollar value. Calculate total annual rewards value. Build a "fees vs benefits" table for every card with a keep/cancel/downgrade verdict and ROI. Add one strategic tip relevant to their goal.
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">🎁 D. Rewards & Card Optimization</h2>
+Each card's real reward structure. Table: spend category → optimal card → points/cashback earned per year → dollar value. Total annual rewards value. Fees vs benefits table per card with keep/cancel/downgrade verdict and ROI.
 
-<h2>🇨🇦 E. New Card Recommendations</h2>
-First state clearly whether they should open a new card now given their situation and goal timeline (factor in hard-inquiry score impact). Then give 2-3 specific real Canadian cards (e.g. Scotia Momentum Visa Infinite, TD Aeroplan Visa Infinite, Rogers Red World Elite, Tangerine Money-Back, Scotia Passport Visa Infinite, CIBC Dividend Visa Infinite) with real benefits, fees, and estimated annual value FOR THIS PERSON'S spending — but frame as "for the 12-18 month horizon" if opening now isn't advised. Give a clear personal recommendation.
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">🇨🇦 E. New Card Recommendations</h2>
+Should they open a new card now? (factor hard-inquiry impact). Then 2-3 specific real Canadian cards with real benefits, fees, estimated annual value for THIS person's spending. Clear personal recommendation.
 
-<h2>🏦 F. Savings & Emergency Fund Plan</h2>
-Lay out current savings by account in a table. Calculate emergency fund target = 3-6 months of their actual expenses ($${monthlyExpTotal} × 3 = $${(monthlyExpTotal*3).toFixed(0)} minimum, × 6 = $${(monthlyExpTotal*6).toFixed(0)} ideal) and show the exact GAP. Propose a specific monthly allocation of their surplus split across emergency fund / goal fund / buffer in a table with 12-month totals. Recommend TFSA vs RRSP specific to ${basic.province} (note QC provincial tax treatment). Suggest 3-4 real Canadian high-interest savings/TFSA options with current approximate rates (EQ Bank, Wealthsimple Cash, Tangerine, their own bank). Show interest earned estimate.
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">🏦 F. Savings & Emergency Fund Plan</h2>
+Current savings table. Emergency fund target (${monthlyExpTotal} × 3 = $${(monthlyExpTotal*3).toFixed(0)} min, × 6 = $${(monthlyExpTotal*6).toFixed(0)} ideal) with exact gap. Monthly surplus allocation table with 12-month totals. TFSA vs RRSP for ${basic.province}. 3-4 real Canadian HISA options with rates. Interest earned estimate.
 
-<h2>💸 G. Spending Analysis & Optimization</h2>
-Build a table: each expense category, their dollar amount, % of income, a typical Canadian/${basic.province} benchmark range, and a status flag (🟢 good / 🟡 review / 🔴 high). Identify the 1-2 categories with the biggest optimization opportunity and quantify the annual savings of trimming them (e.g. "reducing restaurants from $X to $Y saves $Z/year"). Tie the savings back to accelerating their primary goal.
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">💸 G. Spending Analysis</h2>
+Table: category | amount | % income | QC/Canada benchmark | status flag. Top 1-2 optimization opportunities with annual savings quantified and tied to their goal acceleration.
 
-<h2>🎯 H. Goal Strategy</h2>
-Tailored roadmap for their primary goal: ${goals.primary || "their stated goal"} (timeline: ${goals.timeline || "unspecified"}, target: ${goals.amount ? "$"+goals.amount : "unspecified"}). Show the math proving whether the goal is achievable in the timeline given their surplus. Milestones with specific dollar amounts and target months. Key risks and how to protect the goal.
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">🎯 H. Goal Strategy</h2>
+Roadmap for: ${goals.primary || "their stated goal"} (timeline: ${goals.timeline || "unspecified"}, target: ${goals.amount ? "$"+goals.amount : "unspecified"}). Math proving achievability. Milestones with dollar amounts and target months. Key risks and mitigations.
 
-<h2>✅ I. Action Plan</h2>
-<h3 style="color:#0a1628;margin:18px 0 10px">⚡ This Week (Days 1–7)</h3>
-4-6 concrete actions in a table with exact amounts and estimated time per task.
-<h3 style="color:#0a1628;margin:18px 0 10px">📅 This Month (Days 8–30)</h3>
+<h2 style="font-family:Georgia,serif;color:#0a1628;font-size:20px;margin:32px 0 14px;padding-top:24px;border-top:1px solid #ece5d8">✅ I. Action Plan</h2>
+<h3 style="color:#0a1628;margin:18px 0 10px;font-size:16px">⚡ This Week (Days 1–7)</h3>
+Table with 4-6 actions, exact amounts, estimated time.
+<h3 style="color:#0a1628;margin:18px 0 10px;font-size:16px">📅 This Month (Days 8–30)</h3>
 4-6 actions with exact steps.
-<h3 style="color:#0a1628;margin:18px 0 10px">🔄 Next 90 Days</h3>
+<h3 style="color:#0a1628;margin:18px 0 10px;font-size:16px">🔄 Next 90 Days</h3>
 4-6 strategic moves with running savings totals.
-<h3 style="color:#0a1628;margin:18px 0 10px">📈 Next 12 Months</h3>
-A month-by-month milestone table ending at their goal, plus a projected end-state snapshot (savings, debt, score).
+<h3 style="color:#0a1628;margin:18px 0 10px;font-size:16px">📈 Next 12 Months</h3>
+Month-by-month milestone table ending at goal. Projected end-state snapshot (savings, debt, score).
 
-End with a brief encouraging closing paragraph referencing their specific goal and situation, and a one-line disclaimer that this is educational and they should consult a licensed advisor (CFP / conseiller financier in QC) for complex tax/legal/investment decisions.`;
+End with an encouraging closing paragraph and a one-line disclaimer to consult a licensed CFP / conseiller financier in QC for complex decisions.`;
+
+  // ── Streaming response ──
+  res.setHeader("Content-Type", "text/plain; charset=utf-8");
+  res.setHeader("Transfer-Encoding", "chunked");
+  res.setHeader("X-Accel-Buffering", "no"); // disable Nginx buffering
+  res.setHeader("Cache-Control", "no-cache");
 
   try {
     const client = new Anthropic({ apiKey });
-    const message = await client.messages.create({
+
+    const stream = await client.messages.stream({
       model: "claude-sonnet-4-6",
       max_tokens: 8000,
       messages: [{ role: "user", content: prompt }],
     });
 
-    const reportHtml = message.content[0].text;
-    return res.status(200).json({ report: reportHtml });
+    for await (const chunk of stream) {
+      if (
+        chunk.type === "content_block_delta" &&
+        chunk.delta?.type === "text_delta"
+      ) {
+        res.write(chunk.delta.text);
+      }
+    }
+
+    res.end();
   } catch (err) {
-    console.error("Anthropic error:", err);
-    return res.status(500).json({ error: err.message || "Failed to generate report" });
+    console.error("Anthropic stream error:", err);
+    // If headers already sent, we can only end the stream
+    if (!res.headersSent) {
+      res.status(500).json({ error: err.message || "Stream failed" });
+    } else {
+      res.end();
+    }
   }
 }
 
 export const config = {
-  api: { bodyParser: { sizeLimit: "1mb" }, responseLimit: "8mb" }
+  api: {
+    bodyParser: { sizeLimit: "1mb" },
+    responseLimit: false, // no limit on streaming response
+  },
 };

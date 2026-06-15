@@ -152,12 +152,11 @@ export default function Home() {
   const surplus = (totalIncome - totalExp - totalDebtPay).toFixed(0);
   const totalSav = Object.values(sav).reduce((a,b) => a+(parseFloat(b)||0), 0);
 
-  /* ── submit ── */
+  /* ── submit with streaming ── */
   async function handleSubmit() {
     setLoading(true);
     setError("");
     setReport("");
-    // scroll to top
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     try {
@@ -169,12 +168,27 @@ export default function Home() {
             totalIncome, totalExp, totalLimit, totalBal, util, surplus, totalDebt, totalSav }
         })
       });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || "Server error");
-      setReport(json.report);
+
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(errText || `Server error ${res.status}`);
+      }
+
+      // Switch to report view immediately so user sees content as it streams
+      setLoading(false);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let accumulated = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        accumulated += decoder.decode(value, { stream: true });
+        setReport(accumulated);
+      }
     } catch (e) {
       setError(e.message);
-    } finally {
       setLoading(false);
     }
   }
@@ -189,17 +203,18 @@ export default function Home() {
 
   const denseInputStyle = { background:"#fff" };
 
-  /* ─── REPORT VIEW ─── */
+  /* ─── LOADING SCREEN ─── */
   if (loading) return (
     <div style={{ minHeight:"100vh", background:"linear-gradient(160deg,#0a1628,#0d1f3c)", display:"flex", alignItems:"center", justifyContent:"center", flexDirection:"column", gap:20, padding:40 }}>
       <div style={{ width:52, height:52, border:"3px solid rgba(201,168,76,0.2)", borderTopColor:"#c9a84c", borderRadius:"50%", animation:"spin 0.8s linear infinite" }} />
       <h2 style={{ fontFamily:"Georgia,serif", fontSize:24, color:"#fff", textAlign:"center" }}>Analyzing your financial profile…</h2>
-      <p style={{ color:"rgba(255,255,255,0.45)", fontSize:15, textAlign:"center" }}>This takes 20–40 seconds. Please don't close this tab.</p>
+      <p style={{ color:"rgba(255,255,255,0.45)", fontSize:15, textAlign:"center" }}>Connecting to advisor AI…</p>
       <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
     </div>
   );
 
-  if (report) return (
+  /* ─── REPORT VIEW (streaming) ─── */
+  if (report !== "" || error) return (
     <>
       <Head><title>Your Financial Report — FinScore Canada</title></Head>
       <div style={{ minHeight:"100vh", background:"linear-gradient(160deg,#0a1628,#0d1f3c)", padding:"40px 16px 80px" }}>
@@ -218,18 +233,36 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Report body */}
+            {/* Streaming indicator */}
+            {!error && report.length < 500 && (
+              <div style={{ display:"flex", alignItems:"center", gap:12, padding:"14px 18px", background:"#f0faf5", borderLeft:"4px solid #1a7a4a", borderRadius:"0 10px 10px 0", marginBottom:20 }}>
+                <div style={{ width:16, height:16, border:"2px solid rgba(26,122,74,0.3)", borderTopColor:"#1a7a4a", borderRadius:"50%", animation:"spin 0.8s linear infinite", flexShrink:0 }} />
+                <span style={{ fontSize:14, color:"#1a7a4a", fontWeight:600 }}>Generating your personalized report… this may take 30–60 seconds.</span>
+                <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
+              </div>
+            )}
+
+            {/* Error */}
+            {error && (
+              <div style={{ background:"#fef2f0", border:"1px solid rgba(192,57,43,0.3)", borderRadius:10, padding:"14px 18px", marginBottom:20, color:"#c0392b", fontSize:14 }}>
+                ⚠️ {error}
+              </div>
+            )}
+
+            {/* Report body — renders progressively as chunks arrive */}
             <div className="report-body" dangerouslySetInnerHTML={{ __html: report }} />
 
-            {/* Actions */}
-            <div className="no-print" style={{ display:"flex", gap:12, marginTop:36, paddingTop:24, borderTop:"1px solid #ece5d8", flexWrap:"wrap" }}>
-              <button onClick={() => window.print()} style={{ flex:1, minWidth:160, padding:"13px 20px", borderRadius:12, background:"#0a1628", border:"1px solid rgba(201,168,76,0.3)", color:"#c9a84c", fontFamily:"inherit", fontSize:14, fontWeight:700, cursor:"pointer" }}>
-                🖨 Print / Save PDF
-              </button>
-              <button onClick={() => { setReport(""); setError(""); }} style={{ flex:1, minWidth:160, padding:"13px 20px", borderRadius:12, background:"rgba(201,168,76,0.08)", border:"1px solid rgba(201,168,76,0.3)", color:"#c9a84c", fontFamily:"inherit", fontSize:14, fontWeight:700, cursor:"pointer" }}>
-                ↺ New Analysis
-              </button>
-            </div>
+            {/* Actions — show only when streaming is done (report is substantial) */}
+            {report.length > 1000 && !error && (
+              <div className="no-print" style={{ display:"flex", gap:12, marginTop:36, paddingTop:24, borderTop:"1px solid #ece5d8", flexWrap:"wrap" }}>
+                <button onClick={() => window.print()} style={{ flex:1, minWidth:160, padding:"13px 20px", borderRadius:12, background:"#0a1628", border:"1px solid rgba(201,168,76,0.3)", color:"#c9a84c", fontFamily:"inherit", fontSize:14, fontWeight:700, cursor:"pointer" }}>
+                  🖨 Print / Save PDF
+                </button>
+                <button onClick={() => { setReport(""); setError(""); }} style={{ flex:1, minWidth:160, padding:"13px 20px", borderRadius:12, background:"rgba(201,168,76,0.08)", border:"1px solid rgba(201,168,76,0.3)", color:"#c9a84c", fontFamily:"inherit", fontSize:14, fontWeight:700, cursor:"pointer" }}>
+                  ↺ New Analysis
+                </button>
+              </div>
+            )}
           </Card>
         </div>
       </div>
